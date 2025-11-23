@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Библейские Курсы - Найди свое призвание</title>
+    <style>
+        /* Основные настройки и переменные цветов */
+        :root {
+            --primary-blue: #6ea2c5; /* Цвет из презентации */
+            --bg-color: #f4f4f4;     /* Светлый фон из презентации */
+            --text-color: #333333;
+            --white: #ffffff;
+            --dark-blue: #4a7a99;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .accent-text {
+            color: var(--primary-blue);
+        }
+
+        /* Кнопка */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-blue);
+        }
+
+        /* Hero Section (Первый экран) */
+        .hero {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--bg-color);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Миссия */
+        .mission {
+            background-color: var(--white);
+        }
+        
+        .mission-box {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-line {
+            width: 100px;
+            height: 3px;
+            background-color: #333;
+            margin: 20px auto;
+        }
+
+        /* Преимущества */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .check-icon {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Для кого */
+        .audience {
+            background-color: var(--white);
+        }
+
+        .audience-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .audience-text {
+            flex: 1;
+        }
+        
+        .audience-img {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .audience-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .group-call {
+            background-color: #eef6fb;
+            padding: 20px;
+            border-left: 4px solid var(--primary-blue);
+            margin-top: 20px;
+        }
+
+        /* Программа курса (Модули) */
+        .modules-list {
+            margin-top: 40px;
+        }
+
+        .module-item {
+            background: var(--white);
+            margin-bottom: 20px;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        .module-header {
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .topic-list li {
+            margin-bottom: 10px;
+            list-style-type: none;
+        }
+        
+        .topic-title {
+            font-weight: bold;
+            display: block;
+        }
+
+        /* Цифры */
+        .stats {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .stat-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Условия */
+        .conditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        .condition-icon {
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .audience-content { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <p style="text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px;">Презентация проекта</p>
+            <h1><span class="accent-text">БИБЛЕЙСКИЕ КУРСЫ</span></h1>
+            <p>Посредством Евангелия и служения пяти даров мы достигаем духовного здоровья, помогаем найти призвание и совершить своё предназначение.</p>
+            <!-- Ссылка на форму в верхней кнопке -->
+            <a href="https://forms.yandex.ru/cloud/68fb4c7795add57717f675cd" target="_blank" class="btn">Записаться на курс</a>
+        </div>
+    </header>
+
+    <!-- Mission Section -->
+    <section class="section mission">
+        <div class="container">
+            <div class="mission-box">
+                <h2>Наша <span class="accent-text">миссия</span></h2>
+                <div class="mission-line"></div>
+                <p>Посредством Евангелия и служения пяти даров мы достигаем духовного здоровья, помогаем найти призвание и совершить своё предназначение в жизни.</p>
+                <br>
+                <p style="font-weight: bold; font-size: 1.2rem;">Для нас важен каждый!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Преимущества <span class="accent-text">наших курсов</span></h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="check-icon">✓</span>
+                    <p>Оригинальность и сбалансированность программы</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="check-icon">✓</span>
+                    <p>Наши спикеры являются самыми компетентными в сфере преподаваемых дисциплин</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="check-icon">✓</span>
+                    <p>Дистанционный формат делает участие максимально доступным для 99% членов церкви</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="check-icon">✓</span>
+                    <p>Удобное расписание позволит совмещать курсы с работой или служением</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="check-icon">✓</span>
+                    <p>Возможность просмотра пропущенных тем по индивидуальным ссылкам</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience -->
+    <section class="section audience">
+        <div class="container">
+            <div class="audience-content">
+                <div class="audience-text">
+                    <h2>Для <span class="accent-text">кого?</span></h2>
+                    <p><strong>Наши курсы ориентированы на:</strong></p>
+                    <ul style="margin-left: 20px; margin-top: 10px; margin-bottom: 20px;">
+                        <li>Членов поместных церквей, которые хотят найти своё призвание;</li>
+                        <li>Волонтёров и служителей поместных церквей, желающих укрепиться в своей позиции и приобрести новые инструменты для эффективного служения.</li>
+                    </ul>
+                    
+                    <div class="group-call">
+                        <p><strong>Совет:</strong> Участие будет более эффективным, если Вы поступите на курсы не один, а <strong>пригласите других членов вашей общины</strong>.</p>
+                        <br>
+                        <p>Это поможет поддерживать друг друга, обсуждать темы и вместе реализовывать проекты.</p>
+                    </div>
+                </div>
+                <div class="audience-img">
+                    <!-- Плейсхолдер для изображения студентов -->
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Студенты">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum / Modules -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Темы <span class="accent-text">курсов</span></h2>
+            <div class="modules-list">
+                
+                <!-- Module 1 -->
+                <div class="module-item">
+                    <div class="module-header">Модуль 1: Поклонение и Доктрина (Пророк)</div>
+                    <ul class="topic-list">
+                        <li><span class="topic-title">Личные отношения с Богом: Молитва и Слово</span> Фокус на выработке ежедневных духовных привычек для обретения силы.</li>
+                        <li><span class="topic-title">Познание Бога: Его характер и атрибуты</span> Как Божий образ должен преображать наше мировоззрение.</li>
+                        <li><span class="topic-title">Поклонение в Духе и Истине</span> Поклонение как образ жизни и важность таинств.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-item">
+                    <div class="module-header">Модуль 2: Благовестие и Миссия (Евангелист)</div>
+                    <ul class="topic-list">
+                        <li><span class="topic-title">Суть Евангелия</span> Крест, Покаяние и Рождение свыше. Спасение через веру.</li>
+                        <li><span class="topic-title">Стратегия Личного Благовестия: "Ловля людей"</span> Как найти подход к неверующим и восполнить их потребности.</li>
+                        <li><span class="topic-title">Церковь и Общество</span> Влияние и служение городу, миссия по спасению.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-item">
+                    <div class="module-header">Модуль 3: Общение и Забота (Пастырь)</div>
+                    <ul class="topic-list">
+                        <li><span class="topic-title">Анатомия Церкви: Тело Христа и Завет</span> Церковь как Дом Божий и социальный институт.</li>
+                        <li><span class="topic-title">Здоровые Отношения: Малые группы</span> Малая группа как сердце общины для душепопечения.</li>
+                        <li><span class="topic-title">Основы Душепопечения и Консультирования</span> Принципы заботы о ближнем.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-item">
+                    <div class="module-header">Модуль 4: Наставничество и Зрелость (Учитель)</div>
+                    <ul class="topic-list">
+                        <li><span class="topic-title">Секреты Ученичества</span> Путь Наставника и Ученика для духовного роста.</li>
+                        <li><span class="topic-title">Зрелое Христианство</span> От младенца ко взрослому: ответственность и полнота возраста Христова.</li>
+                        <li><span class="topic-title">Экономика Царства</span> Библейское учение о финансах, десятине и приношениях.</li>
+                    </ul>
+                </div>
+
+                <!-- Module 5 -->
+                <div class="module-item">
+                    <div class="module-header">Модуль 5: Служение и Призвание (Апостол)</div>
+                    <ul class="topic-list">
+                        <li><span class="topic-title">Призвание и Дары</span> Выявление своего места в Теле и определение миссии.</li>
+                        <li><span class="topic-title">Лидерство в Церкви</span> Апостольское видение и структура на основе пяти даров.</li>
+                        <li><span class="topic-title">Баланс: Пять Даров Служения в нашей жизни</span> Равновесие для построения здоровой общины.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats & Price Section -->
+    <section class="section stats">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 50px;">Цифры <span class="accent-text">проекта</span></h2>
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">тем</div>
+                    <div class="stat-desc">в программе курса</div>
+                </div>
+                <div>
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">занятия</div>
+                    <div class="stat-desc">в неделю (по 2-3 часа)</div>
+                </div>
+                <div>
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">недель</div>
+                    <div class="stat-desc">длительность курса</div>
+                </div>
+                <div>
+                    <div class="stat-number">5000 ₽</div>
+                    <div class="stat-label">пожертвование</div>
+                    <div class="stat-desc">на организацию курсов</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conditions Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center">Условия для <span class="accent-text">участия</span></h2>
+            <p class="text-center" style="max-width: 600px; margin: 0 auto;">Мы постарались убрать ненужные препятствия для участия в Библейских курсах, условия минимальны:</p>
+            
+            <div class="conditions-grid">
+                <div>
+                    <span class="condition-icon">⛪</span>
+                    <h3>Принадлежность</h3>
+                    <p>к поместной церкви</p>
+                </div>
+                <div>
+                    <span class="condition-icon">🙏</span>
+                    <h3>Благословение</h3>
+                    <p>Получить благословение пастора</p>
+                </div>
+                <div>
+                    <span class="condition-icon">📝</span>
+                    <h3>Заявка</h3>
+                    <p>Отправить заявку на участие</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer id="register">
+        <div class="container">
+            <h2 style="color: white;">Готовы начать обучение?</h2>
+            <p style="margin-bottom: 30px;">Присоединяйтесь к нам, чтобы найти свое призвание.</p>
+            <!-- Ссылка на форму в нижней кнопке -->
+            <a href="https://forms.yandex.ru/cloud/68fb4c7795add57717f675cd" target="_blank" class="btn" style="background-color: var(--white); color: var(--primary-blue);">Ссылка на регистрацию</a>
+        </div>
+    </footer>
+
+</body>
+</html>
